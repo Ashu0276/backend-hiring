@@ -15,8 +15,17 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import include, path
+from website.SiteView import SiteViewAPI
+# Replace this line:
+# from website import admin
+
+# With this:
+from django.contrib import admin
+
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
-    path("website/", include("website.urls")),
+    path('admin/', admin.site.urls),
+    # path("website/", include("website.urls")),
+    #path('admin/', admin.site.urls),
+    path('site/', SiteViewAPI.as_view(), name = 'site'),
 ]
