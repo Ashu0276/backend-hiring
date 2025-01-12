@@ -15,7 +15,7 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import include, path
-from website.SiteView import SiteViewAPI
+from website.views import SiteCreateAPIView, UserRecordCreateAPIView, JobCreateAPIView
 # Replace this line:
 # from website import admin
 
@@ -27,5 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path("website/", include("website.urls")),
     #path('admin/', admin.site.urls),
-    path('site/', SiteViewAPI.as_view(), name = 'site'),
+    path('site/', SiteCreateAPIView.as_view(), name = 'site'),
+    path('user/', UserRecordCreateAPIView.as_view(), name = 'site'),
+    path('job/', JobCreateAPIView.as_view(), name = 'site'),
 ]
